@@ -595,6 +595,16 @@
 </footer>
 
 <script>
+  // Desktop browsers cannot open sms: links (Windows shows an app-picker dialog),
+  // so on non-mobile devices the "text us" buttons scroll to the quote form instead.
+  (function(){
+    if (!/Android|iPhone|iPad/i.test(navigator.userAgent)) {
+      document.querySelectorAll('a[href^="sms:"]').forEach(function(a){
+        a.href = '#quote';
+      });
+    }
+  })();
+
   // Until a form backend is connected, "submit" composes an SMS (mobile) or email
   // (desktop) with the filled-in details, so no lead is ever lost.
   (function(){
