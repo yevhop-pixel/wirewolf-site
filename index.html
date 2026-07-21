@@ -71,6 +71,7 @@
     html{scroll-behavior:auto}
     *,*::before,*::after{animation:none!important;transition:none!important}
   }
+  html,body{overflow-x:clip}
   body{
     margin:0;
     background:var(--paper);
@@ -114,6 +115,11 @@
   }
   .call-btn:hover{filter:brightness(1.08)}
   @media (max-width:760px){ .topnav .hide-m{display:none} }
+  @media (max-width:480px){
+    .logo{font-size:1.05rem}
+    .call-btn{font-size:.72rem;padding:.5em .7em}
+    .topbar .wrap{gap:10px}
+  }
 
   .hero{
     border-bottom:1px solid var(--line);
@@ -218,7 +224,7 @@
     display:flex;align-items:baseline;gap:10px;
     font-size:.98rem;padding:7px 0;
   }
-  .rate-row .svc{white-space:nowrap}
+  .rate-row .svc{min-width:0}
   .rate-row .dots{
     flex:1;border-bottom:1px dotted var(--line-strong);
     transform:translateY(-4px);min-width:24px;
@@ -409,7 +415,7 @@
         <p class="lede">From a clean 5.1 living-room setup to a dedicated cinema room — designed, wired, calibrated and programmed onto one remote.</p>
         <div class="rate-row"><span class="svc">5.1 surround install &amp; calibration</span><span class="dots"></span><span class="price">from <b>$699</b></span></div>
         <div class="rate-row"><span class="svc">Projector + screen install</span><span class="dots"></span><span class="price">from <b>$549</b></span></div>
-        <div class="rate-row"><span class="svc">Dedicated cinema room</span><span class="dots"></span><span class="price">custom, free design quote</span></div>
+        <div class="rate-row"><span class="svc">Dedicated cinema room</span><span class="dots"></span><span class="price">custom quote</span></div>
       </div>
 
       <div class="rate-group">
@@ -417,7 +423,7 @@
         <p class="lede">Lighting, shades, climate, cameras, audio — programmed by an actual control-system programmer, so it keeps working after we leave.</p>
         <div class="rate-row"><span class="svc">Smart home starter (hub + 5 devices)</span><span class="dots"></span><span class="price">from <b>$499</b></span></div>
         <div class="rate-row"><span class="svc">Camera system (4 cams, recorded)</span><span class="dots"></span><span class="price">from <b>$899</b></span></div>
-        <div class="rate-row"><span class="svc">Whole-home automation</span><span class="dots"></span><span class="price">custom, free design quote</span></div>
+        <div class="rate-row"><span class="svc">Whole-home automation</span><span class="dots"></span><span class="price">custom quote</span></div>
       </div>
     </div>
     <p class="rate-foot">// Prices in CAD before HST. Materials (mounts, cable, brackets) at cost + receipt shown. Travel per zone table below.</p>
