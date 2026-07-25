@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Wirewolf">
+  <rect width="64" height="64" fill="#10161C"/>
+  <g transform="translate(32 32) scale(0.561) translate(-50 -51)">
+    <polygon points="50,92 14,46 28,10 50,30 72,10 86,46" fill="#FF5A1B"/>
+    <polygon points="37,46 45,53 33,57" fill="#10161C"/>
+    <polygon points="63,46 55,53 67,57" fill="#10161C"/>
+  </g>
+</svg>
