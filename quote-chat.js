@@ -35,9 +35,13 @@
     ".ww-typing{align-self:flex-start;color:#5b6470;font-size:13px;padding:4px 8px}" +
     "#ww-note{font-size:11px;color:#8a93a0;text-align:center;padding:4px 12px;background:#f4f5f7}" +
     "#ww-foot{display:flex;align-items:flex-end;gap:8px;padding:10px;background:#fff;border-top:1px solid #e3e6ea}" +
-    "#ww-attach{background:none;border:0;cursor:pointer;font-size:20px;padding:8px 4px;color:#5b6470}" +
-    "#ww-input{flex:1;border:1px solid #d6dade;border-radius:10px;padding:10px 12px;font:14px 'Segoe UI',Arial,sans-serif;" +
-    "resize:none;max-height:110px;outline:none}#ww-input:focus{border-color:#FF5A1B}" +
+    "#ww-attach{background:none !important;border:0 !important;box-shadow:none !important;appearance:none;" +
+    "cursor:pointer;font-size:20px;padding:8px 4px;color:#5b6470;line-height:1}" +
+    "#ww-input{flex:1;background:#fff !important;color:#10161C !important;border:1px solid #d6dade;border-radius:10px;" +
+    "padding:10px 12px;font:14px/1.4 'Segoe UI',Arial,sans-serif;resize:none;height:40px;max-height:110px;" +
+    "overflow-y:hidden;outline:none;box-shadow:none}" +
+    "#ww-input:focus{border-color:#FF5A1B}" +
+    "#ww-input::placeholder{color:#8a93a0;opacity:1}" +
     "#ww-send{background:#FF5A1B;color:#fff;border:0;border-radius:10px;padding:10px 14px;font-weight:700;cursor:pointer}" +
     "#ww-send:disabled{opacity:.5;cursor:default}" +
     ".ww-file-chip{font-size:12px;background:#10161C;color:#fff;border-radius:8px;padding:4px 8px;margin:0 10px 6px;align-self:flex-start}" +
@@ -220,7 +224,7 @@
     "<div id='ww-note'>Prices in chat are estimates — your flat quote is confirmed in writing. <a href='/terms.html' style='color:#8a93a0'>Terms</a></div>" +
     "<div id='ww-foot'>" +
     "<button id='ww-attach' title='Attach a photo or PDF' aria-label='Attach a photo or PDF'>📷</button>" +
-    "<textarea id='ww-input' rows='1' placeholder='Type here… e.g. Starlink on a 2-storey roof in Barrie'></textarea>" +
+    "<textarea id='ww-input' rows='1' placeholder='Type your message…'></textarea>" +
     "<button id='ww-send' aria-label='Send'>➤</button></div>";
   document.body.appendChild(panel);
 
@@ -246,6 +250,12 @@
   sendBtn.onclick = send;
   input.addEventListener("keydown", function (e) {
     if (e.key === "Enter" && !e.shiftKey) { e.preventDefault(); send(); }
+  });
+  input.addEventListener("input", function () {
+    input.style.height = "40px";
+    var h = Math.min(input.scrollHeight, 110);
+    input.style.height = h + "px";
+    input.style.overflowY = h >= 110 ? "auto" : "hidden";
   });
   panel.querySelector("#ww-attach").onclick = function () { fileInput.click(); };
   fileInput.onchange = function () {
