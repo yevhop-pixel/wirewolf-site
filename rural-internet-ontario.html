@@ -1,0 +1,433 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Rural Internet in Ontario (2026): An Installer's Honest Guide | Wirewolf</title>
+<meta name="description" content="An honest guide to rural internet in Ontario — DSL, fixed wireless, cellular, satellite and Starlink — from an installer who ran rural systems for Bell before Starlink existed.">
+<meta name="ahrefs-site-verification" content="1c76ff083ef39dc4af500cf538f1e910547a4ffcd886a726476235752dcd8e93">
+<meta property="og:site_name" content="Wirewolf Installations">
+<meta property="og:title" content="Rural Internet in Ontario: An Installer's Honest Guide">
+<meta property="og:description" content="DSL, fixed wireless, cellular, satellite and Starlink — compared honestly by an installer who ran rural and satellite systems for Bell before Starlink existed.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://wirewolf.io/rural-internet-ontario.html">
+<meta property="og:image" content="https://wirewolf.io/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="en_CA">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Rural Internet in Ontario: An Installer's Honest Guide">
+<meta name="twitter:description" content="DSL, fixed wireless, cellular, satellite and Starlink, compared honestly by an ex-Bell rural install tech.">
+<meta name="twitter:image" content="https://wirewolf.io/og.png">
+<link rel="canonical" href="https://wirewolf.io/rural-internet-ontario.html">
+<script src="https://analytics.ahrefs.com/analytics.js" data-key="/n2tBLA+tEBXhlON/4sw4g" async></script>
+<link rel="icon" href="/favicon.ico" sizes="32x32">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<meta name="theme-color" content="#10161C">
+<link rel="stylesheet" href="/style.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Rural Internet in Ontario (2026): An Installer's Honest Guide",
+  "description": "An honest, technology-by-technology guide to rural internet in Ontario — DSL, fixed wireless, cellular, satellite and Starlink — written by an installer who ran rural and satellite systems for Bell before Starlink existed.",
+  "image": "https://wirewolf.io/og.png",
+  "author": { "@type": "Organization", "name": "Wirewolf Installations", "url": "https://wirewolf.io" },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Wirewolf Installations",
+    "url": "https://wirewolf.io",
+    "logo": { "@type": "ImageObject", "url": "https://wirewolf.io/og.png" }
+  },
+  "datePublished": "2026-08-12",
+  "dateModified": "2026-08-12",
+  "mainEntityOfPage": { "@type": "WebPage", "@id": "https://wirewolf.io/rural-internet-ontario.html" }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Wirewolf", "item": "https://wirewolf.io/" },
+    { "@type": "ListItem", "position": 2, "name": "Rural Internet in Ontario", "item": "https://wirewolf.io/rural-internet-ontario.html" }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Is Starlink good enough for work-from-home video calls?",
+      "acceptedAnswer": { "@type": "Answer", "text": "For most rural properties, yes. Old geostationary satellite internet sits roughly 35,000 km up, and that distance creates a real, physical lag that makes video calls and anything real-time painful, no matter how good the download speed looks on paper. Starlink flies a few hundred kilometres up instead, which cuts that lag down close to what you'd get on cable or fibre. Video calls, VPNs and cloud meetings work normally on the large majority of installs we do. It's worth testing on your own line before you bet a job on it, but the latency problem that made old satellite internet unusable for remote work is largely solved." }
+    },
+    {
+      "@type": "Question",
+      "name": "What happens to Starlink in a storm or heavy snow?",
+      "acceptedAnswer": { "@type": "Answer", "text": "It's a radio link through the atmosphere, so heavy rain or wet snow can cause brief dropouts — that's true of any satellite system. The dish has built-in heating to melt light snow and frost off the surface on its own, but it won't keep up with a real accumulating snowfall, and a dish half-buried in snow will lose signal regardless of the heater. Full-day outages are rare in our experience; short dropouts during the worst of a storm happen. Mounting the dish somewhere it doesn't collect drifting snow, and somewhere you can actually reach to clear it, matters more than people expect." }
+    },
+    {
+      "@type": "Question",
+      "name": "Do I need a professional install, or can I do it myself?",
+      "acceptedAnswer": { "@type": "Answer", "text": "The kit is genuinely DIY-able on an easy site — flat or low roof, open sky view, a short cable run to a wall you can drill yourself. Where people call us is the sites that aren't easy: steep or multi-storey roofs, a tree line to get above, a long cable run into a finished basement, a pole mount instead of the roof, or a barn and shop that also need coverage. If your site is straightforward, buy the kit and put it up yourself. If it isn't, that's genuinely what we're for." }
+    },
+    {
+      "@type": "Question",
+      "name": "Can one dish cover the house and a barn or shop?",
+      "acceptedAnswer": { "@type": "Answer", "text": "The dish itself, no problem — it's a single wireless link to the satellite regardless of how many buildings you have. The part that actually needs solving is getting that connection out to the second building. Wi-Fi from a router in the house will not reach a barn or steel-sided shop a hundred metres away; steel and distance both kill it. What works is a real Ethernet drop to the outbuilding, or in some layouts a point-to-point wireless bridge — either way, it's a separate piece of the job from the dish itself." }
+    },
+    {
+      "@type": "Question",
+      "name": "Is fibre coming to rural Ontario?",
+      "acceptedAnswer": { "@type": "Answer", "text": "In a lot of areas, yes — provincial and federal rural broadband programs are actively funding fibre builds across Ontario, and it's genuinely happening, not just announced. But it rolls out road by road over a period of years, and a program covering your township doesn't mean fibre is at your specific driveway this year. Check directly with the provider doing the build in your area for their actual timeline for your address, rather than going by a regional announcement." }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="wrap">
+    <a class="logo" href="/"><svg viewBox="0 0 100 100" aria-hidden="true"><polygon class="head" points="50,92 14,46 28,10 50,30 72,10 86,46"/><polygon class="eye" points="37,46 45,53 33,57"/><polygon class="eye" points="63,46 55,53 67,57"/></svg>WIRE<span class="bolt">WOLF</span></a>
+    <nav class="topnav">
+      <a class="hide-m" href="/">Home</a>
+      <a class="hide-m" href="/#pricing">Pricing</a>
+      <a class="hide-m" href="/starlink-installation-barrie.html">Starlink Install</a>
+      <a class="call-btn" href="tel:+17057177074">CALL/TEXT 705·717·7074</a>
+    </nav>
+  </div>
+</div>
+
+<header class="hero" id="top">
+  <div class="wrap">
+    <p class="crumb"><a href="/">Wirewolf</a> / Rural internet in Ontario</p>
+    <p class="eyebrow">Cottages · farms · lake properties · GTA to four hours out</p>
+    <h1>Rural internet in Ontario: an installer's honest guide</h1>
+    <p class="hero-sub">
+      DSL, fixed wireless, cellular, satellite and fibre — what actually works once you're
+      past the town line, written by a certified AV field engineer who installed satellite
+      and rural internet systems for Bell before Starlink existed. No sales pitch, just
+      what we'd tell a neighbour.
+    </p>
+    <div class="hero-cta">
+      <a class="btn btn-solid" href="sms:+17057177074">TEXT A PIN OR PHOTO → HONEST ANSWER</a>
+      <a class="btn btn-ghost" href="#options">SEE THE OPTIONS ↓</a>
+    </div>
+    <p class="hero-note">// Most quotes answered within the hour, seven days a week</p>
+
+    <div class="statline">
+      <div class="stat"><b>Ex-Bell</b><span>installed rural &amp; satellite internet before Starlink existed</span></div>
+      <div class="stat"><b>5</b><span>realistic options compared, no invented numbers</span></div>
+      <div class="stat"><b>$449</b><span>flat Starlink roof install, when it's the right call</span></div>
+      <div class="stat"><b>GTA + 4hrs</b><span>service area from our Etobicoke base</span></div>
+    </div>
+  </div>
+</header>
+
+<section>
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="sec-tag">The problem</span>
+      <h2>Why rural Ontario internet is still hard in 2026</h2>
+    </div>
+    <div class="prose">
+      <p>
+        Coverage maps make rural Ontario look solved. Zoom into the actual concession road
+        and it isn't. Three separate pieces of infrastructure all run out at roughly the
+        same point outside town, and they run out for different reasons — which is why
+        "just switch providers" so rarely fixes anything.
+      </p>
+      <p>
+        <strong>DSL dies with distance.</strong> A phone line carrying internet loses
+        signal quality the farther it runs from the central office or roadside cabinet —
+        that's physics, not a coverage decision. Close to town you might get a usable
+        connection; a few kilometres out, on the same line, you get a fraction of it, and
+        past a certain distance the modem won't sync at all no matter what plan you're
+        paying for.
+      </p>
+      <p>
+        <strong>Cable stops at the town line.</strong> Cable providers build out to a
+        density threshold and stop — running new coax to serve one farmhouse a kilometre
+        past the last subdivision doesn't pencil out for them, and it never will. If your
+        neighbour two streets over has cable and you don't, that's usually the whole
+        explanation.
+      </p>
+      <p>
+        <strong>Fibre buildouts are slow and patchy.</strong> Provincial and federal rural
+        broadband programs are real, and fibre is genuinely being run into rural Ontario
+        right now. But it goes in road by road, over years, funded and scheduled a
+        township at a time. "Fibre is coming to the region" and "fibre is at your
+        driveway" are two different sentences, often separated by a couple of construction
+        seasons.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section id="options">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="sec-tag">The options</span>
+      <h2>The realistic options, technology by technology</h2>
+      <p>
+        We're not going to hand you a chart of made-up speeds and prices — those numbers
+        change constantly and depend on your exact address. What we can tell you, from
+        having installed most of this ourselves, is how each technology actually behaves
+        and what to check before you sign up.
+      </p>
+    </div>
+    <div class="prose">
+      <p>
+        <strong>DSL.</strong> Worth checking only if you're genuinely close to the exchange
+        or cabinet — ask the provider for the specific line distance to your address, not a
+        generic "available in your area" answer. If you're several kilometres out, don't
+        expect it to carry video calls or streaming reliably, and don't expect that distance
+        to get any shorter — copper plant gets maintained, not extended.
+      </p>
+      <p>
+        <strong>Fixed wireless.</strong> A dish or antenna on your property talks to a
+        tower, so it needs honest line of sight — trees, a hill or a barn roof in the way
+        will hurt or kill it, and a mast height that clears your own roofline this year may
+        not clear a neighbour's new pole barn next year. It also shares that tower with
+        everyone else pointed at it, so performance can drop hard on weekend evenings when
+        the whole area is streaming at once. Ask who else is on that tower before you
+        commit, and ask what happens to your speed at 8 pm on a Sunday, not at 2 pm on a
+        Tuesday.
+      </p>
+      <p>
+        <strong>Cellular home internet.</strong> A router using the regular LTE or 5G
+        network. This lives and dies by the nearest cell tower — its distance, its
+        congestion, and whether it's built for data traffic or mostly phone calls. A
+        coverage map bar doesn't tell you any of that; the only real test is a signal
+        reading taken at the house itself, at a busy hour. An external antenna can pull a
+        weak signal up to something usable, but it can't invent capacity on an overloaded
+        tower.
+      </p>
+      <p>
+        <strong>Satellite — legacy vs. low-orbit.</strong> The old satellite internet most
+        rural Ontario properties grew up with — including systems we installed for Bell —
+        bounces the signal off a satellite parked in geostationary orbit, roughly
+        35,000&nbsp;km up. That round trip creates real, noticeable lag: video calls and
+        anything real-time suffer even when the download speed looks fine on paper.
+        Starlink and the newer low-orbit satellite systems fly a few hundred kilometres up
+        instead, which cuts that lag dramatically. The trade-off is weather — heavy rain or
+        wet snow can degrade the link, and the dish needs a genuinely open view of the sky,
+        not "mostly open."
+      </p>
+      <p>
+        <strong>Fibre.</strong> When it's actually run to your property, nothing else on
+        this list competes. Check availability at the provider's own address-lookup tool,
+        not a general regional announcement, before you rule out anything else.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="sec-tag">Where it fits</span>
+      <h2>Where Starlink genuinely wins — and where it doesn't</h2>
+    </div>
+    <div class="prose">
+      <p>
+        I spent years installing satellite dishes and rural internet gear for Bell before
+        Starlink existed, so I've watched this exact problem from the other side of the
+        truck, on the technology that came before it. The properties where Starlink is the
+        right call are the ones where every other option on this list has a real, physical
+        reason it doesn't work — not just a slow speed, a hard no.
+      </p>
+      <p>
+        <strong>No line of sight to any tower.</strong> If fixed wireless and cellular both
+        need a tower you can't see from any point on the property, satellite is the only
+        technology left that doesn't care where the nearest tower is.
+      </p>
+      <p>
+        <strong>Lakes and forest.</strong> Cottages set back in trees, or across a lake from
+        the road, are usually beyond cable, fibre and often line-of-sight wireless
+        entirely. A dish with a clear shot at the sky sidesteps all of it.
+      </p>
+      <p>
+        <strong>Farms sitting between two towns.</strong> The classic "serviced on the map,
+        unserviced in reality" address — just outside both towers' effective range, just
+        past where the cable or fibre build stopped on either side. We see this most on
+        properties that sit almost exactly halfway between two service areas, where every
+        provider's map technically colours the address in, but no actual signal reaches it.
+      </p>
+      <p>
+        Where it doesn't win: a town core with working cable or fibre already at the house.
+        If that's you, we'll say so — Starlink is not an upgrade over a solid wired
+        connection, and installing it there would be $449 you didn't need to spend.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section id="price">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="sec-tag">The install</span>
+      <h2>What a professional install changes</h2>
+      <p>
+        The kit works on its own. Where it gets mounted, how the cable gets into the house,
+        and whether the rest of the property is actually covered — that's the part that
+        decides whether it works well for years or ends up in a drawer.
+      </p>
+    </div>
+    <div class="prose">
+      <p>
+        <strong>Placement above the tree line.</strong> A dish clamped to the nearest wall
+        gets partial sky and partial obstruction, and both show up as dropouts later. We
+        survey the sky view first and mount high enough, or on a pole clear of the tree
+        line, to get a genuinely open view — see our full breakdown of
+        <a href="/starlink-roof-vs-pole-mount.html">roof vs. pole mounts</a> for which one
+        fits your property.
+      </p>
+      <p>
+        <strong>Weatherproof entry.</strong> The cable has to get from the dish into the
+        house without becoming a leak. That means a proper sealed entry point, not a bead
+        of silicone around a hole drilled through the siding.
+      </p>
+      <p>
+        <strong>Whole-property coverage.</strong> A router in the house does not reach a
+        steel-sided shop, a detached garage or a barn a hundred metres out — steel and
+        distance both kill Wi-Fi. Mesh Wi-Fi extends coverage across the yard; a real
+        Ethernet drop is what actually gets a signal into a second building.
+      </p>
+    </div>
+    <div class="rate-card">
+      <div class="rate-group">
+        <h3>Starlink installation <span class="badge">Flat rate</span></h3>
+        <div class="rate-row"><span class="svc">Standard roof or gable mount</span><span class="dots"></span><span class="price"><b>$449</b></span></div>
+        <div class="rate-row"><span class="svc">Pole or non-penetrating mount</span><span class="dots"></span><span class="price"><b>$549</b></span></div>
+        <div class="rate-row"><span class="svc">Whole-property mesh Wi-Fi add-on</span><span class="dots"></span><span class="price">from <b>$199</b></span></div>
+        <div class="rate-row"><span class="svc">Ethernet run to barn, shop or second building (per drop)</span><span class="dots"></span><span class="price"><b>$120</b></span></div>
+      </div>
+      <div class="rate-group">
+        <h3>Travel from Etobicoke <span class="badge">By zone</span></h3>
+        <div class="rate-row"><span class="svc">Zone A — Toronto &amp; the GTA core</span><span class="dots"></span><span class="price"><b>Free</b></span></div>
+        <div class="rate-row"><span class="svc">Zone B — Barrie, Hamilton, Oshawa and similar</span><span class="dots"></span><span class="price"><b>$59</b></span></div>
+        <div class="rate-row"><span class="svc">Zone C — Muskoka, Peterborough, Collingwood and similar</span><span class="dots"></span><span class="price"><b>$129</b></span></div>
+        <div class="rate-row"><span class="svc">Zone D — Huntsville, Parry Sound, Kingston and similar</span><span class="dots"></span><span class="price"><b>$219</b></span></div>
+      </div>
+    </div>
+    <p class="rate-foot">// Prices in CAD before HST. Full zone table and exact distances: <a href="/#travel">wirewolf.io/#travel</a>.</p>
+    <p class="rate-foot">// This is our Starlink list — the <a href="/">full price list</a> also covers TVs, smart home and AV work.</p>
+    <p class="rate-foot">// Area pages with local detail: <a href="/starlink-installation-barrie.html">Barrie &amp; Simcoe County</a>, <a href="/starlink-installation-muskoka.html">Muskoka</a>, <a href="/starlink-installation-peterborough.html">Peterborough</a> and <a href="/starlink-installation-hamilton.html">Hamilton</a>.</p>
+  </div>
+</section>
+
+<section class="band" id="checklist">
+  <div class="wrap">
+    <div class="band-grid">
+      <div>
+        <span class="sec-tag">Before you choose</span>
+        <h2>Five questions worth answering before you buy anything</h2>
+        <ul>
+          <li>Can you actually get fibre here — checked on the provider's own address lookup, not a regional coverage map?</li>
+          <li>What does the Starlink app's obstruction scan show from the exact spot you'd mount it?</li>
+          <li>How many buildings need real coverage — just the house, or the house plus a shop or barn?</li>
+          <li>Is there genuine, unobstructed line of sight to a fixed-wireless tower, or do trees and hills actually block it?</li>
+          <li>Does the site need a straightforward roof mount, or a pole, a long cable run and extra Ethernet drops?</li>
+        </ul>
+      </div>
+      <div>
+        <div class="tick">
+          <span class="sec-tag">Honest answer</span>
+          <p>Not sure what your property can actually get? Text us a pin or a photo. We'll give you a straight answer — even if it's "keep your cable."</p>
+          <a class="btn btn-solid" href="sms:+17057177074">TEXT A PIN OR PHOTO</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="sec-tag">FAQ</span>
+      <h2>Straight answers about rural internet and Starlink</h2>
+    </div>
+    <details>
+      <summary>Is Starlink good enough for work-from-home video calls?</summary>
+      <div class="a">For most rural properties, yes. Old geostationary satellite internet sits roughly 35,000 km up, and that distance creates a real, physical lag that makes video calls and anything real-time painful, no matter how good the download speed looks on paper. Starlink flies a few hundred kilometres up instead, which cuts that lag down close to what you'd get on cable or fibre. Video calls, VPNs and cloud meetings work normally on the large majority of installs we do. It's worth testing on your own line before you bet a job on it, but the latency problem that made old satellite internet unusable for remote work is largely solved.</div>
+    </details>
+    <details>
+      <summary>What happens to Starlink in a storm or heavy snow?</summary>
+      <div class="a">It's a radio link through the atmosphere, so heavy rain or wet snow can cause brief dropouts — that's true of any satellite system. The dish has built-in heating to melt light snow and frost off the surface on its own, but it won't keep up with a real accumulating snowfall, and a dish half-buried in snow will lose signal regardless of the heater. Full-day outages are rare in our experience; short dropouts during the worst of a storm happen. Mounting the dish somewhere it doesn't collect drifting snow, and somewhere you can actually reach to clear it, matters more than people expect.</div>
+    </details>
+    <details>
+      <summary>Do I need a professional install, or can I do it myself?</summary>
+      <div class="a">The kit is genuinely DIY-able on an easy site — flat or low roof, open sky view, a short cable run to a wall you can drill yourself. Where people call us is the sites that aren't easy: steep or multi-storey roofs, a tree line to get above, a long cable run into a finished basement, a pole mount instead of the roof, or a barn and shop that also need coverage. If your site is straightforward, buy the kit and put it up yourself. If it isn't, that's genuinely what we're for.</div>
+    </details>
+    <details>
+      <summary>Can one dish cover the house and a barn or shop?</summary>
+      <div class="a">The dish itself, no problem — it's a single wireless link to the satellite regardless of how many buildings you have. The part that actually needs solving is getting that connection out to the second building. Wi-Fi from a router in the house will not reach a barn or steel-sided shop a hundred metres away; steel and distance both kill it. What works is a real Ethernet drop to the outbuilding, or in some layouts a point-to-point wireless bridge — either way, it's a separate piece of the job from the dish itself.</div>
+    </details>
+    <details>
+      <summary>Is fibre coming to rural Ontario?</summary>
+      <div class="a">In a lot of areas, yes — provincial and federal rural broadband programs are actively funding fibre builds across Ontario, and it's genuinely happening, not just announced. But it rolls out road by road over a period of years, and a program covering your township doesn't mean fibre is at your specific driveway this year. Check directly with the provider doing the build in your area for their actual timeline for your address, rather than going by a regional announcement.</div>
+    </details>
+  </div>
+</section>
+
+<section id="quote">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="sec-tag">Book it</span>
+      <h2>Not sure what your property can get? Text a pin or a photo</h2>
+    </div>
+    <div class="contact-block">
+      <span class="kv-label">CALL / TEXT — EVERY DAY, 9 AM TO 9 PM</span>
+      <a class="big" href="tel:+17057177074">+1 (705) 717-7074</a>
+      <div class="contact-kv">
+        <div><span>EMAIL</span> <a href="mailto:book@wirewolf.io">book@wirewolf.io</a></div>
+        <div><span>BASE</span> Etobicoke, Toronto — GTA and up to four hours beyond</div>
+        <div><span>STARLINK PAGES</span> <a href="/starlink-installation-barrie.html">Barrie</a> · <a href="/starlink-installation-muskoka.html">Muskoka</a> · <a href="/starlink-installation-peterborough.html">Peterborough</a> · <a href="/starlink-installation-hamilton.html">Hamilton</a></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <a class="logo" href="/" style="font-size:1.1rem">WIRE<span class="bolt">WOLF</span></a>
+        <p>Engineer-grade AV, Starlink &amp; smart home installations. Based in Etobicoke — GTA and up to four hours beyond.</p>
+      </div>
+      <div>
+        <span class="kv-label">Call / text</span><br>
+        <a href="tel:+17057177074" style="text-decoration:none;font-weight:600">+1 (705) 717-7074</a><br>
+        <a href="mailto:book@wirewolf.io">book@wirewolf.io</a>
+      </div>
+      <div>
+        <span class="kv-label">Pages</span><br>
+        <a href="/">Home &amp; full price list</a><br>
+        <a href="/starlink-installation-barrie.html">Starlink in Barrie</a><br>
+        <a href="/starlink-installation-muskoka.html">Starlink in Muskoka</a><br>
+        <a href="/tv-mounting-toronto.html">TV mounting in Toronto</a><br>
+        <a href="/terms.html">Terms of service</a>
+      </div>
+    </div>
+    <p>© 2026 Wirewolf Installations. All work performed by insured technicians.</p>
+  </div>
+</footer>
+
+<script>
+  (function(){
+    if (!/Android|iPhone|iPad/i.test(navigator.userAgent)) {
+      document.querySelectorAll('a[href^="sms:"]').forEach(function(a){ a.href = '#quote'; });
+    }
+  })();
+</script>
+<script src="/quote-chat.js" defer></script>
+</body>
+</html>
