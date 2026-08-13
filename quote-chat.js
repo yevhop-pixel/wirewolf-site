@@ -7,9 +7,9 @@
   var WORKER_URL = "https://wirewolf-quote.quote-widget.workers.dev";
 
   var GREETING =
-    "Hey! I'm Wolf — Wirewolf's online specialist. Tell me what you need " +
-    "(TV mounting, Starlink, home theatre, smart home), or send a photo of " +
-    "your wall or roof, and I'll give you a price estimate right here. 🐺";
+    "Hey, Wirewolf here 🐺 Tell me what you need — TV mounting, Starlink, " +
+    "home theatre, smart home — or send a photo of your wall or roof, " +
+    "and I'll price it right here.";
 
   var css =
     "#ww-chat-btn{position:fixed;right:20px;bottom:20px;z-index:99990;display:flex;align-items:center;gap:10px;" +
@@ -123,7 +123,7 @@
   function setTyping(on) {
     var t = document.getElementById("ww-typing");
     if (on && !t) {
-      t = el("div", { class: "ww-typing", id: "ww-typing" }, "Wolf is typing…");
+      t = el("div", { class: "ww-typing", id: "ww-typing" }, "typing…");
       msgs.appendChild(t);
       msgs.scrollTop = msgs.scrollHeight;
     } else if (!on && t) t.remove();
@@ -155,6 +155,8 @@
     busy = true;
     sendBtn.disabled = true;
     setTyping(true);
+    var t0 = Date.now();
+    var MIN_DELAY = 4000; // feel human: never reply faster than 4s
 
     fetch(WORKER_URL, {
       method: "POST",
@@ -164,10 +166,15 @@
       .then(function (r) { return r.json(); })
       .then(function (d) {
         var reply = d.reply || "Sorry, something went wrong — text us at (705) 717-7074.";
-        history.push({ role: "assistant", content: reply });
-        save();
-        setTyping(false);
-        addBubble("ww-bot", reply);
+        var show = function () {
+          history.push({ role: "assistant", content: reply });
+          save();
+          setTyping(false);
+          addBubble("ww-bot", reply);
+        };
+        var elapsed = Date.now() - t0;
+        if (elapsed < MIN_DELAY) setTimeout(show, MIN_DELAY - elapsed);
+        else show();
       })
       .catch(function () {
         setTyping(false);
@@ -207,10 +214,10 @@
   var panel = el("div", { id: "ww-chat", role: "dialog", "aria-label": "Wirewolf quote chat" });
   panel.innerHTML =
     "<div id='ww-head'>" + wolfSvg +
-    "<div><div class='t'>WIREWOLF — INSTANT QUOTE</div><div class='s'>AI specialist · online 24/7</div></div>" +
+    "<div><div class='t'>WIREWOLF — INSTANT QUOTE</div><div class='s'>Usually replies in under a minute</div></div>" +
     "<button id='ww-close' aria-label='Close'>✕</button></div>" +
     "<div id='ww-msgs'></div>" +
-    "<div id='ww-note'>AI assistant — prices are estimates; your flat quote is confirmed in writing. <a href='/terms.html' style='color:#8a93a0'>Terms</a></div>" +
+    "<div id='ww-note'>Prices in chat are estimates — your flat quote is confirmed in writing. <a href='/terms.html' style='color:#8a93a0'>Terms</a></div>" +
     "<div id='ww-foot'>" +
     "<button id='ww-attach' title='Attach a photo or PDF' aria-label='Attach a photo or PDF'>📷</button>" +
     "<textarea id='ww-input' rows='1' placeholder='Type here… e.g. Starlink on a 2-storey roof in Barrie'></textarea>" +
