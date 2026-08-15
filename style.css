@@ -266,10 +266,11 @@ footer a:hover{color:var(--accent)}
 .hero-sub{animation-delay:.08s}.hero-cta{animation-delay:.16s}.hero-note{animation-delay:.24s}
 
 /* ---------- job photos ---------- */
-.ww-shots{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:26px 0 6px}
+.ww-shots{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin:26px 0 6px}
 .ww-shots figure{margin:0}
-.ww-shots img{width:100%;aspect-ratio:3/4;object-fit:cover;display:block;border-radius:10px;
+.ww-shots img{width:100%;height:auto;aspect-ratio:3/4;object-fit:cover;display:block;border-radius:10px;
   border:1px solid var(--line);background:var(--card)}
-.ww-shots figcaption{font-size:.82rem;line-height:1.4;color:var(--steel);margin-top:8px}
-.ww-shots-note{font-family:var(--font-mono);font-size:.75rem;color:var(--steel);margin:2px 0 0}
-@media(max-width:760px){.ww-shots{grid-template-columns:repeat(2,1fr);gap:10px}}
+.ww-shots figcaption{font-size:.84rem;line-height:1.45;color:var(--steel);margin-top:9px}
+.ww-shots-note{font-family:var(--font-mono);font-size:.75rem;color:var(--steel);margin:10px 0 0}
+@media(max-width:560px){.ww-shots{grid-template-columns:1fr;gap:18px}
+  .ww-shots img{aspect-ratio:3/4;max-height:70vh}}
