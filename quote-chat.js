@@ -12,12 +12,20 @@
     "and I'll price it right here.";
 
   var css =
-    "#ww-chat-btn{position:fixed;right:20px;bottom:20px;z-index:99990;display:flex;align-items:center;gap:10px;" +
-    "background:#10161C;color:#fff;border:1px solid #2a333d;border-radius:999px;padding:12px 20px 12px 12px;cursor:pointer;" +
-    "font:600 15px/1 'Segoe UI',Arial,sans-serif;box-shadow:0 6px 24px rgba(0,0,0,.35);transition:transform .15s}" +
-    "#ww-chat-btn:hover{transform:translateY(-2px)}" +
-    "#ww-chat-btn svg{width:30px;height:30px;flex:none}" +
-    "#ww-chat-btn .ww-dot{position:absolute;top:6px;right:8px;width:9px;height:9px;border-radius:50%;background:#2ecc71}" +
+    "#ww-chat-btn{position:fixed;right:20px;bottom:20px;z-index:99990;display:flex;align-items:center;gap:11px;" +
+    "background:#FF5A1B;color:#fff;border:0;border-radius:999px;padding:14px 24px 14px 14px;cursor:pointer;" +
+    "font:700 16px/1 'Segoe UI',Arial,sans-serif;letter-spacing:.01em;" +
+    "box-shadow:0 8px 28px rgba(255,90,27,.45),0 2px 10px rgba(0,0,0,.3);" +
+    "transition:transform .15s,box-shadow .15s;animation:ww-pop .5s ease-out both,ww-pulse 2.8s ease-in-out 1.2s infinite}" +
+    "#ww-chat-btn:hover{transform:translateY(-3px) scale(1.03);box-shadow:0 12px 34px rgba(255,90,27,.55)}" +
+    "#ww-chat-btn:active{transform:translateY(-1px) scale(.99)}" +
+    "#ww-chat-btn svg{width:34px;height:34px;flex:none;border-radius:50%;background:#10161C}" +
+    "#ww-chat-btn .ww-dot{position:absolute;top:8px;left:34px;width:10px;height:10px;border-radius:50%;" +
+    "background:#2ecc71;border:2px solid #FF5A1B}" +
+    "@keyframes ww-pop{from{opacity:0;transform:translateY(14px) scale(.9)}to{opacity:1;transform:none}}" +
+    "@keyframes ww-pulse{0%,100%{box-shadow:0 8px 28px rgba(255,90,27,.45),0 2px 10px rgba(0,0,0,.3),0 0 0 0 rgba(255,90,27,.5)}" +
+    "50%{box-shadow:0 8px 28px rgba(255,90,27,.45),0 2px 10px rgba(0,0,0,.3),0 0 0 14px rgba(255,90,27,0)}}" +
+    "@media(prefers-reduced-motion:reduce){#ww-chat-btn{animation:none}}" +
     "#ww-chat{position:fixed;right:20px;bottom:20px;z-index:99991;width:370px;max-width:calc(100vw - 24px);height:600px;" +
     "max-height:calc(100vh - 40px);display:none;flex-direction:column;background:#fff;border-radius:16px;overflow:hidden;" +
     "box-shadow:0 12px 48px rgba(0,0,0,.45);font-family:'Segoe UI',Arial,sans-serif}" +
@@ -45,7 +53,11 @@
     "#ww-send{background:#FF5A1B;color:#fff;border:0;border-radius:10px;padding:10px 14px;font-weight:700;cursor:pointer}" +
     "#ww-send:disabled{opacity:.5;cursor:default}" +
     ".ww-file-chip{font-size:12px;background:#10161C;color:#fff;border-radius:8px;padding:4px 8px;margin:0 10px 6px;align-self:flex-start}" +
-    "@media(max-width:480px){#ww-chat{right:0;bottom:0;width:100vw;max-width:100vw;height:100%;max-height:100%;border-radius:0}}";
+    "@media(max-width:480px){" +
+    "#ww-chat{right:0;bottom:0;left:0;top:auto;width:100vw;max-width:100vw;border-radius:0;" +
+    "height:var(--ww-vh,100dvh);max-height:var(--ww-vh,100dvh)}" +
+    "#ww-chat-btn{right:14px;bottom:14px;padding:13px 20px 13px 13px;font-size:15px}" +
+    "body.ww-locked{position:fixed;width:100%;overflow:hidden}}";
 
   var wolfSvg =
     '<svg viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="14" fill="#10161C"/>' +
@@ -236,16 +248,52 @@
   var sendBtn = panel.querySelector("#ww-send");
   var foot = panel.querySelector("#ww-foot");
 
+  /* ---------- mobile viewport + scroll lock ---------- */
+  var isMobile = window.matchMedia("(max-width:480px)").matches;
+  var savedScroll = 0;
+
+  // Keyboard opening shrinks the visual viewport; pin the panel to it so the
+  // header stays put instead of being pushed off the top of the screen.
+  function syncViewport() {
+    if (!panel.classList.contains("open")) return;
+    var vv = window.visualViewport;
+    var h = vv ? vv.height : window.innerHeight;
+    panel.style.setProperty("--ww-vh", h + "px");
+    if (vv && isMobile) panel.style.transform = "translateY(" + Math.max(0, vv.offsetTop) + "px)";
+    msgs.scrollTop = msgs.scrollHeight;
+  }
+
+  function lockScroll() {
+    savedScroll = window.pageYOffset || document.documentElement.scrollTop || 0;
+    document.body.style.top = -savedScroll + "px";
+    document.body.classList.add("ww-locked");
+  }
+  function unlockScroll() {
+    document.body.classList.remove("ww-locked");
+    document.body.style.top = "";
+    window.scrollTo(0, savedScroll);
+  }
+
+  if (window.visualViewport) {
+    window.visualViewport.addEventListener("resize", syncViewport);
+    window.visualViewport.addEventListener("scroll", syncViewport);
+  }
+  window.addEventListener("orientationchange", function () { setTimeout(syncViewport, 250); });
+
   btn.onclick = function () {
     load();
     renderHistory();
     panel.classList.add("open");
     btn.style.display = "none";
-    input.focus();
+    if (isMobile) lockScroll();
+    syncViewport();
+    if (!isMobile) input.focus(); // on mobile, let the user tap — avoids the keyboard jump
   };
   panel.querySelector("#ww-close").onclick = function () {
     panel.classList.remove("open");
+    panel.style.transform = "";
     btn.style.display = "flex";
+    if (isMobile) unlockScroll();
   };
   sendBtn.onclick = send;
   input.addEventListener("keydown", function (e) {
@@ -257,10 +305,15 @@
     input.style.height = h + "px";
     input.style.overflowY = h >= 110 ? "auto" : "hidden";
   });
-  panel.querySelector("#ww-attach").onclick = function () { fileInput.click(); };
+  panel.querySelector("#ww-attach").onclick = function (e) {
+    e.preventDefault();
+    input.blur(); // close the keyboard first, otherwise the picker fights it
+    setTimeout(function () { fileInput.click(); }, isMobile ? 120 : 0);
+  };
   fileInput.onchange = function () {
     var f = fileInput.files[0];
     fileInput.value = "";
+    setTimeout(syncViewport, 150); // picker closing resizes the viewport back
     if (!f) return;
     if (f.type === "application/pdf") {
       if (f.size > 3_000_000) { addBubble("ww-bot", "That PDF is a bit large — anything under 3 MB works."); return; }
