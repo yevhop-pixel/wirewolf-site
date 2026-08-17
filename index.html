@@ -401,6 +401,16 @@
   @keyframes rise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
   .hero h1,.hero .eyebrow,.hero-sub,.hero-cta,.hero-note{animation:rise .6s ease both}
   .hero-sub{animation-delay:.08s}.hero-cta{animation-delay:.16s}.hero-note{animation-delay:.24s}
+
+  /* rate rows on phones — .price is nowrap and .svc has min-width:0, so a long
+     price ("$99 · free w. Starlink") squeezed the service name into a one-word
+     column below ~500px. Stack them instead. */
+  @media (max-width:520px){
+    .rate-row{flex-wrap:wrap; row-gap:1px; align-items:flex-start}
+    .rate-row .svc{flex:1 1 100%}
+    .rate-row .dots{display:none}
+    .rate-row .price{flex:1 1 100%; white-space:normal; font-size:.94rem}
+  }
 </style>
 </head>
 <body>
@@ -504,8 +514,8 @@
         <div class="rate-row"><span class="svc">Whole-home mesh Wi-Fi add-on</span><span class="dots"></span><span class="price">from <b>$199</b></span></div>
         <div class="rate-row"><span class="svc">Ethernet runs (per drop)</span><span class="dots"></span><span class="price"><b>$120</b></span></div>
         <div class="rate-row"><span class="svc">Custom cable runs (per foot)</span><span class="dots"></span><span class="price"><b>$2</b>/ft · materials at cost</span></div>
-        <div class="rate-row"><span class="svc">Old dish / antenna removal — dish only</span><span class="dots"></span><span class="price"><b>$99</b> · free w. Starlink</span></div>
-        <div class="rate-row"><span class="svc">Full removal — bracket out, holes patched</span><span class="dots"></span><span class="price"><b>$179</b></span></div>
+        <div class="rate-row"><span class="svc">Old dish removal — dish only</span><span class="dots"></span><span class="price"><b>$99</b> · free w. Starlink</span></div>
+        <div class="rate-row"><span class="svc">Full removal + holes patched</span><span class="dots"></span><span class="price"><b>$179</b></span></div>
         <div class="rate-row"><span class="svc">Starlink kit sourced and brought to site</span><span class="dots"></span><span class="price">at <b>cost</b></span></div>
       </div>
 
