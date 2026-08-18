@@ -54,7 +54,7 @@
     "#ww-send:disabled{opacity:.5;cursor:default}" +
     ".ww-file-chip{font-size:12px;background:#10161C;color:#fff;border-radius:8px;padding:4px 8px;margin:0 10px 6px;align-self:flex-start}" +
     "@media(max-width:480px){" +
-    "#ww-chat{right:0;bottom:0;left:0;top:auto;width:100vw;max-width:100vw;border-radius:0;" +
+    "#ww-chat{right:0;left:0;top:0;bottom:auto;width:100vw;max-width:100vw;border-radius:0;" +
     "height:var(--ww-vh,100dvh);max-height:var(--ww-vh,100dvh)}" +
     "#ww-chat-btn{right:14px;bottom:14px;padding:13px 20px 13px 13px;font-size:15px}" +
     "body.ww-locked{position:fixed;width:100%;overflow:hidden}}";
@@ -249,7 +249,10 @@
   var foot = panel.querySelector("#ww-foot");
 
   /* ---------- mobile viewport + scroll lock ---------- */
-  var isMobile = window.matchMedia("(max-width:480px)").matches;
+  var mq = window.matchMedia("(max-width:480px)");
+  function isMobileNow() { return mq.matches; }
+  var isMobile = isMobileNow();
+  if (mq.addEventListener) mq.addEventListener("change", function () { isMobile = isMobileNow(); syncViewport(); });
   var savedScroll = 0;
 
   // Keyboard opening shrinks the visual viewport; pin the panel to it so the
@@ -259,7 +262,9 @@
     var vv = window.visualViewport;
     var h = vv ? vv.height : window.innerHeight;
     panel.style.setProperty("--ww-vh", h + "px");
-    if (vv && isMobile) panel.style.transform = "translateY(" + Math.max(0, vv.offsetTop) + "px)";
+    // Pin to the TOP of the visible area. Anchoring to the bottom puts the panel
+    // underneath the on-screen keyboard, which hides the input entirely.
+    if (isMobile) panel.style.top = (vv ? Math.max(0, vv.offsetTop) : 0) + "px";
     msgs.scrollTop = msgs.scrollHeight;
   }
 
@@ -292,10 +297,12 @@
   panel.querySelector("#ww-close").onclick = function () {
     panel.classList.remove("open");
     panel.style.transform = "";
+    panel.style.top = "";
     btn.style.display = "flex";
     if (isMobile) unlockScroll();
   };
   sendBtn.onclick = send;
+  input.addEventListener("focus", function () { setTimeout(syncViewport, 120); setTimeout(syncViewport, 400); });
   input.addEventListener("keydown", function (e) {
     if (e.key === "Enter" && !e.shiftKey) { e.preventDefault(); send(); }
   });
