@@ -5,6 +5,7 @@
   "use strict";
 
   var WORKER_URL = "https://wirewolf-quote.quote-widget.workers.dev";
+  var MAX_MESSAGES = 40;
 
   var GREETING =
     "Hey, Wirewolf here 🐺 Tell me what you need — TV mounting, Starlink, " +
@@ -77,10 +78,14 @@
   }
 
   function save() {
+    history = history.slice(-MAX_MESSAGES);
+    while (history.length && history[0].role === "assistant") history.shift();
     try { sessionStorage.setItem("ww-chat", JSON.stringify(history)); } catch (e) {}
   }
   function load() {
     try { history = JSON.parse(sessionStorage.getItem("ww-chat") || "[]"); } catch (e) { history = []; }
+    if (!Array.isArray(history)) history = [];
+    save();
   }
 
   function addBubble(cls, text, imgSrc) {
@@ -151,6 +156,7 @@
     if (!text && !pendingFile) return;
 
     var blocks = [];
+    var sentFile = pendingFile;
     var imgSrc = null;
     if (pendingFile) {
       if (pendingFile.kind === "image") {
@@ -172,31 +178,51 @@
     sendBtn.disabled = true;
     setTyping(true);
     var t0 = Date.now();
-    var MIN_DELAY = 4000; // feel human: never reply faster than 4s
+    var MIN_DELAY = 4000;
+    var controller = new AbortController();
+    var timer = setTimeout(function () { controller.abort(); }, 150000);
 
     fetch(WORKER_URL, {
+      signal: controller.signal,
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ messages: history }),
     })
-      .then(function (r) { return r.json(); })
-      .then(function (d) {
-        var reply = d.reply || "Sorry, something went wrong — text us at (705) 717-7074.";
-        var show = function () {
-          history.push({ role: "assistant", content: reply });
-          save();
-          setTyping(false);
-          addBubble("ww-bot", reply);
-        };
-        var elapsed = Date.now() - t0;
-        if (elapsed < MIN_DELAY) setTimeout(show, MIN_DELAY - elapsed);
-        else show();
+      .then(function (r) {
+        return r.json().then(function (d) {
+          if (!r.ok) {
+            if (r.status === 400) { history = []; save(); }
+            throw new Error(r.status === 400 ? "Chat context was reset. Please send your message again." : d.reply || "Connection hiccup — please try again, or text us at (705) 717-7074.");
+          }
+          return d;
+        });
       })
-      .catch(function () {
+      .then(function (d) {
+        clearTimeout(timer);
+        var reply = d.reply || "Sorry, something went wrong — text us at (705) 717-7074.";
+        return new Promise(function (resolve) {
+          var show = function () {
+            history.push({ role: "assistant", content: reply });
+            save();
+            setTyping(false);
+            addBubble("ww-bot", reply);
+            resolve();
+          };
+          var elapsed = Date.now() - t0;
+          if (elapsed < MIN_DELAY) setTimeout(show, MIN_DELAY - elapsed);
+          else show();
+        });
+      })
+      .catch(function (e) {
+        if (history.length && history[history.length - 1].role === "user") history.pop();
+        save();
+        input.value = text;
+        if (sentFile && !pendingFile) { pendingFile = sentFile; showFileChip(sentFile.name); }
         setTyping(false);
-        addBubble("ww-bot", "Connection hiccup — please try again, or text us at (705) 717-7074.");
+        addBubble("ww-bot", e.name === "Error" ? e.message : "Connection hiccup — please try again, or text us at (705) 717-7074.");
       })
       .finally(function () {
+        clearTimeout(timer);
         busy = false;
         sendBtn.disabled = false;
         input.focus();
@@ -210,7 +236,8 @@
   }
 
   function showFileChip(name) {
-    clearFile();
+    var oldChip = document.getElementById("ww-file-chip");
+    if (oldChip) oldChip.remove();
     var chip = el("div", { class: "ww-file-chip", id: "ww-file-chip" });
     chip.textContent = "📎 " + name + "  ✕";
     chip.style.cursor = "pointer";
@@ -254,11 +281,14 @@
   var isMobile = isMobileNow();
   if (mq.addEventListener) mq.addEventListener("change", function () { isMobile = isMobileNow(); syncViewport(); });
   var savedScroll = 0;
+  var scrollLocked = false;
 
   // Keyboard opening shrinks the visual viewport; pin the panel to it so the
   // header stays put instead of being pushed off the top of the screen.
   function syncViewport() {
     if (!panel.classList.contains("open")) return;
+    if (isMobile) lockScroll();
+    else { unlockScroll(); panel.style.top = ""; }
     var vv = window.visualViewport;
     var h = vv ? vv.height : window.innerHeight;
     panel.style.setProperty("--ww-vh", h + "px");
@@ -269,11 +299,15 @@
   }
 
   function lockScroll() {
+    if (scrollLocked) return;
+    scrollLocked = true;
     savedScroll = window.pageYOffset || document.documentElement.scrollTop || 0;
     document.body.style.top = -savedScroll + "px";
     document.body.classList.add("ww-locked");
   }
   function unlockScroll() {
+    if (!scrollLocked) return;
+    scrollLocked = false;
     document.body.classList.remove("ww-locked");
     document.body.style.top = "";
     window.scrollTo(0, savedScroll);
@@ -299,7 +333,7 @@
     panel.style.transform = "";
     panel.style.top = "";
     btn.style.display = "flex";
-    if (isMobile) unlockScroll();
+    unlockScroll();
   };
   sendBtn.onclick = send;
   input.addEventListener("focus", function () { setTimeout(syncViewport, 120); setTimeout(syncViewport, 400); });
