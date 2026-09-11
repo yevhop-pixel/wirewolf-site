@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AV System Design Examples: Control &amp; DSP | Wirewolf</title>
+<meta name="description" content="Explore two original Wirewolf AV design concepts: a conference-room control workflow and DSP signal routing with mix-minus and AEC reference planning.">
+<link rel="canonical" href="https://wirewolf.io/av-system-design-examples.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="AV System Design Examples: Control &amp; DSP | Wirewolf">
+<meta property="og:description" content="Two original illustrative concepts showing how room controls, audio paths and acceptance checks fit together.">
+<meta property="og:url" content="https://wirewolf.io/av-system-design-examples.html">
+<meta property="og:image" content="https://wirewolf.io/og-commercial.png">
+<meta property="og:locale" content="en_CA">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="AV System Design Examples: Control &amp; DSP | Wirewolf">
+<meta name="twitter:description" content="Original conference-room control and DSP routing concepts from Wirewolf.">
+<meta name="twitter:image" content="https://wirewolf.io/og-commercial.png">
+<script src="https://analytics.ahrefs.com/analytics.js" data-key="/n2tBLA+tEBXhlON/4sw4g" async></script>
+<link rel="icon" href="/favicon.ico" sizes="32x32">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<meta name="theme-color" content="#10161C">
+<link rel="stylesheet" href="/style.css">
+<link rel="stylesheet" href="/b2b.css?v=20260911-seo">
+<link rel="stylesheet" href="/av-design-examples.css?v=20260911">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "@id": "https://wirewolf.io/av-system-design-examples.html#webpage",
+  "url": "https://wirewolf.io/av-system-design-examples.html",
+  "name": "AV System Design Examples: Control & DSP",
+  "description": "Two original illustrative AV design concepts covering conference-room controls and DSP signal routing. These are not completed client projects or device-tested systems.",
+  "inLanguage": "en-CA",
+  "publisher": {"@type": "Organization", "@id": "https://wirewolf.io/#organization", "name": "Wirewolf Installations", "url": "https://wirewolf.io/"},
+  "breadcrumb": {"@id": "https://wirewolf.io/av-system-design-examples.html#breadcrumb"}
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "@id": "https://wirewolf.io/av-system-design-examples.html#breadcrumb",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Wirewolf", "item": "https://wirewolf.io/"},
+    {"@type": "ListItem", "position": 2, "name": "Commercial AV Services", "item": "https://wirewolf.io/av-development-crestron-qsys-programming.html"},
+    {"@type": "ListItem", "position": 3, "name": "AV System Design Examples", "item": "https://wirewolf.io/av-system-design-examples.html"}
+  ]
+}
+</script>
+</head>
+<body>
+<div class="topbar"><div class="wrap">
+  <a class="logo" href="/"><svg viewBox="0 0 100 100" aria-hidden="true"><polygon class="head" points="50,92 14,46 28,10 50,30 72,10 86,46"/><polygon class="eye" points="37,46 45,53 33,57"/><polygon class="eye" points="63,46 55,53 67,57"/></svg>WIRE<span class="bolt">WOLF</span></a>
+  <nav class="topnav" aria-label="Main navigation"><a class="hide-m" href="/av-development-crestron-qsys-programming.html">AV services</a><a class="call-btn" href="#contact">DISCUSS A PROJECT</a></nav>
+</div></div>
+<main>
+<header class="hero"><div class="wrap">
+  <p class="crumb"><a href="/">Wirewolf</a> / <a href="/av-development-crestron-qsys-programming.html">Commercial AV</a> / Design examples</p>
+  <p class="eyebrow">Original concepts / Control + DSP</p>
+  <h1>AV system design examples</h1>
+  <p class="hero-sub">A useful AV design connects the user's next action to a clear system response. Explore how we approach room workflows, audio routing and the checks needed before handover.</p>
+  <p class="b2b-note"><strong>Illustrative concepts created by Wirewolf.</strong> These are not completed client projects or device-tested systems. No customer drawings or employer project materials are used.</p>
+  <nav class="b2b-links" aria-label="Design examples"><a href="#room-control">01 / Conference-room control</a><a href="#dsp-routing">02 / DSP and signal routing</a></nav>
+</div></header>
+
+<section id="room-control"><div class="wrap">
+  <div class="sec-head"><span class="sec-tag">Example 01 / Original illustrative concept</span><h2>A conference room with two clear workflows</h2><p>One room, two displays, a conferencing endpoint, a camera and a DSP. The design separates presentation from calling while keeping room listening level, microphone privacy and device status understandable.</p></div>
+  <figure class="concept-figure" aria-labelledby="control-caption">
+    <div class="concept-bar"><span>CONTROL WORKFLOW</span><span>Request → Progress → Feedback</span></div>
+    <ol class="control-flow">
+      <li><span class="flow-number">01</span><h3>Choose the activity</h3><p><strong>Present locally</strong><br>Route the selected source to the agreed display layout.</p><p><strong>Join a call</strong><br>Prepare endpoint video, camera and conference audio.</p></li>
+      <li><span class="flow-number">02</span><h3>Coordinate the room</h3><p>Request display power and input, then show preparation status.</p><p>Apply the selected audio routing and retain the confirmed microphone mute state.</p></li>
+      <li><span class="flow-number">03</span><h3>Show what is known</h3><p>Display/input status, selected source, camera availability and microphone mute feedback.</p><p>Show unavailable or unknown status when feedback is missing.</p></li>
+    </ol>
+    <figcaption id="control-caption">Concept flow: activity selection requests coordinated device actions. The interface reports progress and available device feedback before presenting a confirmed state.</figcaption>
+  </figure>
+  <div class="b2b-grid">
+    <article class="b2b-card"><h3>Present locally</h3><p>Show the selected content on the agreed display or both displays. Playback audio follows that source. Room volume changes what people hear locally. This mode does not start a call or enable microphone transmission.</p></article>
+    <article class="b2b-card"><h3>Join a call</h3><p>Use one display for the meeting and the second for shared content where the endpoint supports it. Camera presets and content sharing appear only when supported. Call connection status comes from the endpoint, not from selecting the room mode.</p></article>
+    <article class="b2b-card"><h3>Separate the audio controls</h3><p>Label local playback level, incoming call level and microphone mute distinctly. A room volume adjustment must not change the outgoing microphone level. Synchronize microphone mute across the panel and supported endpoint controls, with a defined source of truth.</p></article>
+    <article class="b2b-card"><h3>Make recovery understandable</h3><p>Keep the affected device visibly unavailable after a timeout. Bound retries and refresh status when communication returns. Confirm disruptive actions such as ending an active call. Never represent a sent command as a verified hardware state.</p></article>
+  </div>
+  <p class="b2b-note"><strong>Acceptance focus:</strong> review both display layouts, source changes during a call, camera feedback, mute synchronization and loss of a device connection. Confirm the actual interfaces and supported feedback before implementation.</p>
+  <p>Explore the interface side in <a href="/touch-panel-gui-design.html">touch panel and GUI design</a>, or scope the complete workflow through <a href="/av-design-commissioning.html">AV design and commissioning</a>.</p>
+</div></section>
+
+<section id="dsp-routing"><div class="wrap">
+  <div class="sec-head"><span class="sec-tag">Example 02 / Original illustrative concept</span><h2>Give every audio destination the right mix</h2><p>This base concept has one conferencing endpoint and no local speech reinforcement. It separates microphone transmission from room playback and makes the acoustic echo cancellation (AEC) reference explicit.</p></div>
+  <figure class="concept-figure" aria-labelledby="audio-caption">
+    <div class="concept-bar"><span>AUDIO SIGNAL PATHS</span><span>Base concept / No voice lift</span></div>
+    <div class="routing-diagram">
+      <div class="route"><h3>A / Speech to the call</h3><ol><li>Room microphones</li><li>AEC per channel</li><li>Automix + transmit mute</li><li>Endpoint send</li></ol></div>
+      <div class="route"><h3>B / Sound in the room</h3><ol><li>Far-end return + local playback</li><li>Separate source levels</li><li>Room playback mix</li><li>Output → amplifier → speakers</li></ol></div>
+      <div class="route route-reference"><h3>C / Echo reference</h3><ol><li>Same room playback mix</li><li>Coordinated level / mute</li><li>AEC reference inputs</li></ol><p>Reference follows the far-end and playback signals reproduced in the room. Room microphones are excluded from this base reference.</p></div>
+      <div class="route route-optional"><h3>D / Content shared to the call</h3><ol><li>Selected local playback</li><li>Explicit share enable</li><li>Add to endpoint send</li></ol><p>Use one agreed sharing path. Account for endpoint or application content-audio sharing to avoid sending it twice.</p></div>
+    </div>
+    <figcaption id="audio-caption">Read each row left to right, or top to bottom on a narrow screen. Speech travels through AEC and automixing to the endpoint. Far-end return and playback feed the speakers and AEC reference. Selected playback may also join the outgoing call mix.</figcaption>
+  </figure>
+  <div class="b2b-grid">
+    <article class="b2b-card"><h3>Mix-minus at the endpoint</h3><p>The outgoing mix contains local speech and any intentionally shared playback. It excludes that endpoint's own far-end return, preventing a direct electronic loop back to the caller. AEC separately addresses speaker sound picked up by room microphones.</p></article>
+    <article class="b2b-card"><h3>A reference that follows the room</h3><p>The reference represents the far-end and playback audio heard through the speakers. Coordinate its source selection, level and mute with the speaker path. Choose the exact tap points and output processing for the DSP platform and room. Do not feed a microphone into its own AEC reference.</p></article>
+  </div>
+  <aside class="reinforcement-branch"><span class="b2b-kicker">Separate scoped branch</span><h3>If the room needs local speech reinforcement</h3><p>Add a separately designed microphone-to-loudspeaker path with zone routing, gain-before-feedback assessment and platform-appropriate processing. Revisit the AEC references for the reinforced microphones and zones. This branch is not part of the base concept and cannot be added simply by routing the conference send back to the room speakers.</p></aside>
+  <p class="b2b-note"><strong>Acceptance focus:</strong> check near-end speech, far-end speech, simultaneous talk, shared playback and mute recovery with a remote participant. Inspect microphone, transmit, return and reference meters, then listen at both ends. Acoustic performance needs the installed room and cannot be confirmed from this diagram.</p>
+  <p class="concept-sources">Technical basis: <a href="https://training.qsc.com/mod/book/tool/print/index.php?chapterid=3172&amp;id=1623">Q-SYS conferencing signal paths and AEC reference guidance</a> and <a href="https://support.biamp.com/Tesira/Programming/AEC_in_Tesira">Biamp AEC reference guidance</a>. The diagrams are original, platform-neutral concepts, not vendor design files.</p>
+  <nav class="b2b-links" aria-label="DSP programming services"><a href="/qsys-programming.html">Q-SYS programming</a><a href="/biamp-tesira-programming.html">Biamp Tesira programming</a></nav>
+</div></section>
+
+<section id="contact"><div class="wrap">
+  <div class="sec-head"><span class="sec-tag">From concept to your room</span><h2>Bring a workflow or a routing problem</h2><p>For AV integrators and teams responsible for their own systems. Send the room requirements, equipment list, available source files, location and target schedule. We can agree the design scope, implementation responsibilities and acceptance checks.</p></div>
+  <div class="hero-cta"><a class="AhrefsAnalytics-event-email_click btn btn-solid email_click" href="mailto:book@wirewolf.io?subject=AV%20design%20enquiry">EMAIL YOUR PROJECT SCOPE</a><a class="AhrefsAnalytics-event-phone_click btn btn-ghost phone_click" href="tel:+17057177074">CALL 705-717-7074</a></div>
+  <p class="hero-note">Remote support by agreement. Site work in the GTA and Ontario scoped separately.</p>
+</div></section>
+</main>
+<footer><div class="wrap"><div class="foot-grid">
+  <div><a class="logo" href="/">WIRE<span class="bolt">WOLF</span></a><p>Commercial AV programming, design and technical support.</p></div>
+  <div><span class="kv-label">Contact</span><br><a class="AhrefsAnalytics-event-phone_click phone_click" href="tel:+17057177074">+1 (705) 717-7074</a><br><a class="AhrefsAnalytics-event-email_click email_click" href="mailto:book@wirewolf.io">book@wirewolf.io</a></div>
+  <div><span class="kv-label">Wirewolf</span><br><a href="/av-development-crestron-qsys-programming.html">Commercial AV services</a><br><a href="/av-design-commissioning.html">AV design &amp; commissioning</a><br><a href="/touch-panel-gui-design.html">Touch panel &amp; GUI design</a><br><a href="/terms.html">Terms of service</a></div>
+</div><p>© 2026 Wirewolf Installations.</p></div></footer>
+</body>
+</html>

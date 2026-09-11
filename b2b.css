@@ -1,4 +1,6 @@
 /* Shared commercial service layouts. */
+/* Keep linked sections visible below the fixed navigation. */
+[id]{scroll-margin-top:90px}
 .hero h1{max-width:22ch;font-size:clamp(2rem,5.8vw,4.75rem)}
 .b2b-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
 .b2b-card{background:var(--card);border:1px solid var(--line);border-top:3px solid var(--accent);padding:28px;min-width:0}
