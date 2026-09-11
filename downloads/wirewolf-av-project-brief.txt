@@ -1,0 +1,117 @@
+WIREWOLF | AV PROGRAMMING PROJECT BRIEF
+Version: September 11, 2026
+Guide: https://wirewolf.io/av-programming-scope-checklist.html
+Contact: book@wirewolf.io | +1 (705) 717-7074
+
+HOW TO USE
+Fill in what is known. Use "TBC" for open items and "N/A" where not applicable.
+For an initial estimate, start with sections 1-4 and your target schedule.
+This is a planning template, not a quotation or an agreed scope of work.
+Do not include passwords, access tokens or remote-access credentials.
+Attach supporting files you are authorized to share to your enquiry email.
+
+1. PROJECT AND CONTACT
+Project / organization:
+Contact name and role:
+Contact email or phone:
+Integrator / IT / facilities / other:
+Site city, country and timezone:
+New system / modification / fault investigation:
+Target design, programming and commissioning dates:
+
+2. ROOM SCHEDULE (repeat for each distinct type)
+Room name or type:
+Quantity:
+Room modes (separate / combined / presentation / call / event / other):
+Differences between rooms of the same type:
+
+3. REQUESTED SERVICES (mark needed, not needed or TBC)
+Control programming:
+DSP programming:
+Touch panel / GUI design:
+AV system design and signal-flow drawings:
+Device integration / custom modules:
+AV network configuration:
+Remote diagnostics or commissioning:
+On-site testing:
+Training and documentation (if known):
+Other:
+
+4. AVAILABLE INPUTS
+Equipment schedule, exact models and quantities:
+Latest drawing file / revision / date:
+Existing equipment and substitutions:
+Equipment still to arrive and expected dates:
+Control / DSP platforms:
+Software and firmware versions, if known:
+Available editable project files:
+Compiled programs / configuration backups:
+Interface design files / branding / languages:
+Third-party modules or licence dependencies:
+Unavailable files or unknown items:
+
+5. ROOM BEHAVIOUR (repeat for each mode)
+Mode name:
+User action:
+Source device:
+Destination(s):
+Connection or route, if known:
+Room-speaker audio source / zone(s):
+Microphone use (local reinforcement / remote call / recording / stream):
+Room PC or guest laptop conferencing requirement:
+Camera and microphone path to that computer:
+Volume and mute behaviour:
+Panel feedback expected:
+Startup / shutdown state:
+Open decisions:
+
+6. INTERFACE SCOPE
+Panel models / screen sizes / quantity:
+New design / supplied design / revision:
+Required pages, room modes and user roles:
+Brand assets and working language:
+Design reviewer (can be named later):
+Review rounds to include in proposal:
+
+7. RESPONSIBILITIES AND REMOTE READINESS
+Design owner:
+Installation and physical-check owner:
+Control programming owner:
+DSP programming owner:
+AV switch / endpoint configuration owner:
+IT approval and access owner:
+Proposed access method (description only, no credentials):
+Site technician and remote participant availability:
+Equipment availability and installation status:
+Permitted change window and timezone:
+Backup / recovery responsibility:
+
+8. ACCEPTANCE CHECKS (repeat for each agreed scenario)
+Room / mode:
+Action to test:
+Expected result:
+Required equipment, local tester and remote participant:
+Evidence to record:
+Result: not tested / pass / fail
+Issue, owner and retest date:
+
+9. HANDOVER AND PHASES
+Required editable source files and configuration exports:
+Drawing / version / operating notes:
+Training requirements known so far:
+Initial commissioning scope:
+Later equipment integration / return visit scope:
+Excluded items or work by others:
+
+10. OPEN DECISIONS (repeat as needed)
+Question or missing input:
+Working assumption:
+Who can confirm it:
+Needed by:
+Potential scope or schedule impact:
+
+NEXT STEP
+Email the completed brief and available supporting files to book@wirewolf.io.
+Unknowns can be reviewed before a written proposal is finalized.
+Remote work in Canada and worldwide, with access and schedule agreed per project.
+On-site GTA and Ontario work is scoped separately.

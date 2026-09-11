@@ -1,0 +1,10 @@
+/* Scope resource: inherits the existing Wirewolf visual system. */
+.scope-guide .hero h1{max-width:19ch}
+.scope-list{list-style:none;counter-reset:scope;padding:0;margin:0;display:grid;gap:24px}
+.scope-list>li{counter-increment:scope;position:relative;padding:30px 30px 26px 90px;border:1px solid var(--line);background:var(--card)}
+.scope-list>li::before{content:counter(scope,decimal-leading-zero);position:absolute;left:26px;top:29px;font-family:var(--font-mono);font-size:1.4rem;color:var(--accent)}
+.scope-list h3{font-family:var(--font-display);font-size:1.4rem;margin:0 0 14px}
+.scope-list p{max-width:80ch;color:var(--ink-2)}
+.scope-list .scope-prompt{border-top:1px solid var(--line);padding-top:14px;margin-bottom:0}
+.scope-guide #quote p{max-width:85ch}
+@media(max-width:680px){.scope-list>li{padding:24px}.scope-list>li::before{position:static;display:block;margin-bottom:12px}}
