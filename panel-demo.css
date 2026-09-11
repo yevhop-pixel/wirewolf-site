@@ -1,0 +1,55 @@
+/* Original Wirewolf interface concept. Scoped to the browser demonstration. */
+.panel-hero{padding:56px 0}
+.panel-hero h1{font-size:clamp(2.2rem,5vw,4.1rem);max-width:22ch}
+.demo-section{padding-top:30px}
+.room-demo{--demo-bg:#101b27;--demo-card:#182737;--demo-line:#405367;--demo-muted:#bac9d8;--demo-accent:#ff8b4b;background:var(--demo-bg);color:#f3f7fb;border:1px solid #53687c;border-radius:24px;padding:28px;box-shadow:0 24px 70px #0003;font-family:var(--font-body)}
+.room-demo [hidden]{display:none!important}
+.room-demo h3,.room-demo h4,.room-demo p{margin:0}
+.room-demo h3{font-size:1.65rem;line-height:1.25;margin-top:6px}
+.room-demo h4{font-size:1.1rem}
+.room-demo button{font:inherit;line-height:1.3;border:1px solid var(--demo-line);border-radius:10px;background:#203345;color:#f3f7fb;min-height:46px;padding:10px 15px;cursor:pointer}
+.room-demo button:hover:enabled{background:#2b435a;border-color:#86a3bd}
+.room-demo button:focus-visible,.room-demo input:focus-visible{outline:3px solid var(--demo-accent);outline-offset:4px}
+.room-demo button:disabled{opacity:.48;cursor:not-allowed}
+.panel-top,.panel-state,.screen-title,.audio-heading,.volume-label,.demo-tools{display:flex;justify-content:space-between;align-items:center;gap:16px}
+.panel-eyebrow,.screen-title>span,.control-label{font:11px var(--font-mono);letter-spacing:.1em;color:var(--demo-muted)}
+.panel-badges{display:flex;align-items:flex-end;flex-direction:column;gap:8px}
+.sim-badge{background:#ff8b4b;color:#172332;border-radius:5px;padding:5px 9px;font:bold 11px var(--font-mono);letter-spacing:.08em}
+.ready-badge{font-size:12px;color:#b9dfd0}
+.panel-state{justify-content:flex-start;border-top:1px solid var(--demo-line);padding-top:20px;margin-top:22px;font-size:14px}
+.panel-state button{margin-left:auto;background:transparent}
+.state-dot{width:9px;height:9px;border-radius:50%;background:#80d9b4;flex:none}
+.room-demo[data-power="off"] .state-dot{background:#9dabb8}
+.room-demo[data-power="pending"] .state-dot{background:var(--demo-accent)}
+.display-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:22px}
+.room-demo .screen-card{background:var(--demo-card);border:1px solid var(--demo-line);border-radius:16px;padding:20px}
+.monitor{min-height:150px;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:5px;border:1px solid #526579;border-radius:9px;background:linear-gradient(135deg,#233c51,#132333);margin:16px 0 18px;text-align:center;padding:20px 10px}
+.monitor-symbol{font:bold 12px var(--font-mono);color:#bad0e3;border:1px solid #667f94;border-radius:5px;padding:3px 8px}
+.monitor output{font-size:clamp(1.2rem,3vw,1.7rem);font-weight:700;overflow-wrap:anywhere}
+.monitor-caption{font-size:11px;color:var(--demo-muted)}
+.source-picker{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+.source-picker button{padding:12px 5px;font-size:14px}
+.room-demo button[aria-pressed="true"]{background:var(--demo-accent);color:#172332;border-color:var(--demo-accent);font-weight:700}
+.room-demo button[aria-pressed="true"]:hover:enabled{background:#ffad7c;color:#172332}
+.audio-card{border:1px solid var(--demo-line);border-radius:16px;padding:20px;margin-top:20px;background:var(--demo-card)}
+.audio-heading p{color:var(--demo-muted);font-size:12px}
+.audio-heading output{font-size:14px;border:1px solid #667f94;border-radius:8px;padding:5px 10px;overflow-wrap:anywhere}
+.audio-grid{display:grid;grid-template-columns:1fr 1fr;gap:30px;margin-top:20px}
+.control-label{display:block;margin:0 0 10px;letter-spacing:.04em;text-transform:uppercase}
+.volume-label{font-size:14px}
+#demo-volume{width:100%;accent-color:var(--demo-accent);min-height:36px;margin:6px 0;cursor:pointer}
+#demo-mute{width:100%;font-size:14px}
+.room-demo .demo-status{margin-top:20px;background:#0a1420;border-radius:10px;border-left:3px solid var(--demo-accent);padding:12px 16px;color:#d7e4ef;font-size:14px;min-height:64px}
+.demo-tools{border-top:1px solid var(--demo-line);padding-top:18px;margin-top:20px}
+.offline-toggle{display:flex;align-items:center;gap:10px;color:var(--demo-muted);font-size:13px;min-height:44px;cursor:pointer}
+.offline-toggle input{width:20px;height:20px;accent-color:var(--demo-accent);flex:none}
+#demo-reset{font-size:13px;background:transparent;flex:none}
+.room-demo dialog{background:#172838;color:#f3f7fb;border:1px solid #71879c;border-radius:18px;padding:28px;max-width:440px;width:calc(100% - 32px);box-shadow:0 24px 70px #0009}
+.room-demo dialog::backdrop{background:#06101bd9}
+.room-demo dialog p{margin:18px 0;color:#c5d5e3}
+.dialog-actions{display:flex;gap:12px;justify-content:flex-end;flex-wrap:wrap}
+#shutdown-confirm{background:#ff8b4b;color:#172332;font-weight:700;border-color:#ff8b4b}
+.try-notes{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:28px;font-size:15px;color:var(--ink-2)}
+.try-notes strong{display:block;color:var(--ink);margin-bottom:6px}
+@media(max-width:720px){.room-demo{padding:18px;border-radius:18px}.display-grid,.audio-grid,.try-notes{grid-template-columns:1fr}.panel-top{align-items:flex-start}.panel-badges{max-width:105px;text-align:right}.room-demo h3{font-size:1.4rem}.panel-eyebrow{font-size:9px}.panel-state{gap:9px;flex-wrap:wrap}.panel-state button{font-size:12px}.demo-tools{align-items:flex-start;flex-direction:column;gap:8px}.screen-title{gap:8px}.room-demo .screen-card,.audio-card{padding:16px}.monitor{min-height:130px}.audio-grid{gap:20px}.audio-heading{align-items:flex-start}.room-demo .demo-status{min-height:88px}.source-picker button{font-size:13px}.panel-hero{padding:36px 0}}
+@media(prefers-reduced-motion:reduce){.room-demo *{transition:none!important}}
