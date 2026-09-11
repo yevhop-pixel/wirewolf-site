@@ -1,0 +1,11 @@
+﻿Item ID,Room or area,Readiness topic,Evidence or decision needed,Owner,State (Not checked / Ready / Gap / N/A),Evidence reference (no credentials),Checked at and timezone,Notes or next action
+RDY-01,,Scope,"List room modes and agreed tests, exclusions and acceptance criteria.",,Not checked,,,Confirm before session
+RDY-02,,Installed system,"Current marked drawing, exact models, port assignments and missing equipment.",,Not checked,,,Confirm before session
+RDY-03,,Source and versions,"Editable projects, deployed revision, software and firmware versions.",,Not checked,,,Confirm before session
+RDY-04,,Backup and recovery,"Identify backup revision, recovery steps and responsible technician.",,Not checked,,,Confirm before session
+RDY-05,,Access,"IT-approved access method and permitted actions, without credentials in this sheet.",,Not checked,,,Confirm before session
+RDY-06,,People,"Local technician, remote programmer, far-end caller and observation owners available.",,Not checked,,,Confirm before session
+RDY-07,,Test equipment,"Actual room PC, guest laptop if scoped, adapters, camera and test content available.",,Not checked,,,Confirm before session
+RDY-08,,Site conditions,"Room access, noise conditions, participant positions and operating levels.",,Not checked,,,Confirm before session
+RDY-09,,Schedule,"Agreed start/end and timezone, interruption approval and fallback contact method.",,Not checked,,,Confirm before session
+RDY-10,,Session decision,Ready for agreed tests / Limited scope / Resolve gaps. List excluded tests and owners.,,Not checked,,,Confirm before session
