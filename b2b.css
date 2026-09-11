@@ -1,0 +1,20 @@
+/* Shared commercial service layouts. */
+.hero h1{max-width:22ch;font-size:clamp(2rem,5.8vw,4.75rem)}
+.b2b-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
+.b2b-card{background:var(--card);border:1px solid var(--line);border-top:3px solid var(--accent);padding:28px;min-width:0}
+.b2b-card h3{font-family:var(--font-display);font-size:1.3rem;line-height:1.25;margin:0 0 12px}
+.b2b-card p{color:var(--ink-2);margin:0 0 16px}
+.b2b-card a{font-weight:650;text-underline-offset:4px}
+.b2b-kicker{color:var(--accent);font-family:var(--font-mono);font-size:.8rem;text-transform:uppercase;letter-spacing:.08em}
+.b2b-steps{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px 42px;padding-left:24px}
+.b2b-steps li{padding-left:8px;min-width:0}
+.b2b-steps li::marker{color:var(--accent);font-weight:700}
+.b2b-steps h3{margin:0 0 8px}
+.b2b-steps p{color:var(--ink-2);margin:0}
+.b2b-links{display:flex;flex-wrap:wrap;gap:12px 24px;margin-top:28px}
+ul.b2b-links{padding:0;list-style:none}
+.b2b-links a{font-weight:600;text-underline-offset:4px}
+.b2b-note{border-left:3px solid var(--accent);padding:14px 20px;background:var(--card);color:var(--ink-2)}
+.b2b-card a:hover,.b2b-links a:hover{color:var(--accent)}
+a:focus-visible,summary:focus-visible{outline:3px solid var(--accent);outline-offset:4px}
+@media(max-width:680px){.b2b-grid,.b2b-steps{grid-template-columns:1fr}.b2b-card{padding:22px}.b2b-links{flex-direction:column}.hero h1{overflow-wrap:break-word}.btn{max-width:100%;white-space:normal;text-align:center}}

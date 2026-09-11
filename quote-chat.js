@@ -260,7 +260,7 @@
     "<div><div class='t'>WIREWOLF — INSTANT QUOTE</div><div class='s'>Usually replies in under a minute</div></div>" +
     "<button id='ww-close' aria-label='Close'>✕</button></div>" +
     "<div id='ww-msgs'></div>" +
-    "<div id='ww-note'>Prices in chat are estimates — your flat quote is confirmed in writing. <a href='/terms.html' style='color:#8a93a0'>Terms</a></div>" +
+    "<div id='ww-note'>Prices in chat are estimates. Final scope and pricing are agreed in writing. <a href='/terms.html' style='color:#8a93a0'>Terms</a></div>" +
     "<div id='ww-foot'>" +
     "<button id='ww-attach' title='Attach a photo or PDF' aria-label='Attach a photo or PDF'>📷</button>" +
     "<textarea id='ww-input' rows='1' placeholder='Type your message…'></textarea>" +

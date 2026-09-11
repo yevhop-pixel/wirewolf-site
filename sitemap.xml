@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://wirewolf.io/</loc>
-    <lastmod>2026-09-08</lastmod>
+    <lastmod>2026-09-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
@@ -20,7 +20,7 @@
   </url>
   <url>
     <loc>https://wirewolf.io/terms.html</loc>
-    <lastmod>2026-09-08</lastmod>
+    <lastmod>2026-09-11</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
@@ -50,7 +50,7 @@
   </url>
   <url>
     <loc>https://wirewolf.io/commercial-av-toronto.html</loc>
-    <lastmod>2026-09-08</lastmod>
+    <lastmod>2026-09-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -116,10 +116,15 @@
   </url>
   <url>
     <loc>https://wirewolf.io/av-development-crestron-qsys-programming.html</loc>
-    <lastmod>2026-09-08</lastmod>
+    <lastmod>2026-09-11</lastmod>
   </url>
   <url>
     <loc>https://wirewolf.io/av-tv-installation-etobicoke.html</loc>
     <lastmod>2026-09-08</lastmod>
   </url>
+  <url><loc>https://wirewolf.io/crestron-programming.html</loc><lastmod>2026-09-11</lastmod></url>
+  <url><loc>https://wirewolf.io/qsys-programming.html</loc><lastmod>2026-09-11</lastmod></url>
+  <url><loc>https://wirewolf.io/remote-av-support.html</loc><lastmod>2026-09-11</lastmod></url>
+  <url><loc>https://wirewolf.io/av-design-commissioning.html</loc><lastmod>2026-09-11</lastmod></url>
+  <url><loc>https://wirewolf.io/biamp-tesira-programming.html</loc><lastmod>2026-09-11</lastmod></url>
 </urlset>
